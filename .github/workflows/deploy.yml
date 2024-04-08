@@ -37,6 +37,7 @@ jobs:
       run: |
         npm install
         npm run generate-all
+        npm run web-pinyin
     
     - name: Checkout web
       uses: actions/checkout@v4
@@ -46,8 +47,8 @@ jobs:
 
     - name: Copy database files
       run: |
-        cp -r ${{ github.workspace }}/database/output/web ${{ github.workspace }}/web/public/data
-        cp ${{ github.workspace }}/database/output/web/index.json ${{ github.workspace }}/web/src/assets/dataIndex.json
+        cp -r ${{ github.workspace }}/database/output/web-pinyin ${{ github.workspace }}/web/public/data
+        cp ${{ github.workspace }}/database/output/web-pinyin/index.json ${{ github.workspace }}/web/src/assets/dataIndex.json
 
     - name: Install and build web
       working-directory: ${{ github.workspace }}/web
