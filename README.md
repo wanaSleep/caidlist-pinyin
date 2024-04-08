@@ -1,159 +1,159 @@
-# 命令助手ID表生成工具
-## 简介
-命令助手作者 [ProjectXero](https://github.com/XeroAlpha) 使用此工具生成ID表。
+#  mìng líng zhù shǒu ID biǎo shēng chéng gōng jù 
+##  jiǎn jiè 
+ mìng líng zhù shǒu zuò zhě  [ProjectXero](https://github.com/XeroAlpha)  shǐ yòng cǐ gōng jù shēng chéng ID biǎo 。
 
-[MCBEID表](https://ca.projectxero.top/idlist/)（[仓库](https://github.com/XeroAlpha/caidlistweb)）是基于此工具的数据制作的可离线使用的ID表查询网站。
+[MCBEID biǎo ](https://ca.projectxero.top/idlist/)（[ cāng kù ](https://github.com/XeroAlpha/caidlistweb)） shì jī yú cǐ gōng jù de shù jù zhì zuò de kě lí xiàn shǐ yòng de ID biǎo chá xún wǎng zhàn 。
 
-[MCBEID表 在线搜索API](./backend/API.md) 是基于此工具的数据制作的在线ID表搜索接口。
+[MCBEID biǎo   zài xiàn sōu suǒ API](./backend/API.md)  shì jī yú cǐ gōng jù de shù jù zhì zuò de zài xiàn ID biǎo sōu suǒ jiē kǒu 。
 
-本仓库中包含了用于生成ID表的原始数据与部分导出数据，请参见[目录结构](#目录结构)。
+ běn cāng kù zhōng bāo hán le yòng yú shēng chéng ID biǎo de yuán shǐ shù jù yǔ bù fēn dǎo chū shù jù ， qǐng cān jiàn [ mù lù jié gòu ](# mù lù jié gòu )。
 
-如果您希望使用此工具生成特定版本的数据，请参见 [工作流](#工作流)。
+ rú guǒ nín xī wàng shǐ yòng cǐ gōng jù shēng chéng tè dìng bǎn běn de shù jù ， qǐng cān jiàn  [ gōng zuò liú ](# gōng zuò liú )。
 
-如果您希望改善此工具的数据中的翻译部分，请参见 [翻译指南](./translation/README.md)。
+ rú guǒ nín xī wàng gǎi shàn cǐ gōng jù de shù jù zhōng de fān yì bù fēn ， qǐng cān jiàn  [ fān yì zhǐ nán ](./translation/README.md)。
 
-如果您希望数据中包含更多的内容或版本，欢迎提出 Issue。
+ rú guǒ nín xī wàng shù jù zhōng bāo hán gēng duō de nèi róng huò bǎn běn ， huān yíng tí chū  Issue。
 
-## 目录结构
+##  mù lù jié gòu 
 
-### 原始数据
+###  yuán shǐ shù jù 
 
-原始数据均存储在 `version` 目录中。
+ yuán shǐ shù jù jūn cún chǔ zài  `version`  mù lù zhōng 。
 
-`version/common` 目录下存储了与工作流无关的数据。
+`version/common`  mù lù xià cún chǔ le yǔ gōng zuò liú wú guān de shù jù 。
 
-|路径|内容|
+| lù jìng | nèi róng |
 | - | - |
-|`version/common/wiki/standardized_translation.json`|[Minecraft Wiki](https://zh.minecraft.wiki/w/Minecraft_Wiki:%E8%AF%91%E5%90%8D%E6%A0%87%E5%87%86%E5%8C%96) 与 [基岩版开发Wiki](https://wiki.mcbe-dev.net/p/Minecraft%E5%9F%BA%E5%B2%A9%E7%89%88%E5%BC%80%E5%8F%91Wiki:%E8%AF%91%E5%90%8D%E6%A0%87%E5%87%86%E5%8C%96) 中的标准译名表。|
-|`version/java/lang.json`|最新Java版（含快照）的简体中文与英文语言文件。|
-|`version/documentation/`|基岩版官方内容包文档，提取自[官方示例内容包仓库](https://github.com/Mojang/bedrock-samples)。|
-|`version/documentation/<edition>.json`|从对应版本的文档中提取的数据。|
-|`version/documentation/<edition>/<name>.json`|文档解析成的 JSON。|
+|`version/common/wiki/standardized_translation.json`|[Minecraft Wiki](https://zh.minecraft.wiki/w/Minecraft_Wiki:%E8%AF%91%E5%90%8D%E6%A0%87%E5%87%86%E5%8C%96)  yǔ  [ jī yán bǎn kāi fā Wiki](https://wiki.mcbe-dev.net/p/Minecraft%E5%9F%BA%E5%B2%A9%E7%89%88%E5%BC%80%E5%8F%91Wiki:%E8%AF%91%E5%90%8D%E6%A0%87%E5%87%86%E5%8C%96)  zhōng de biāo zhǔn yì míng biǎo 。|
+|`version/java/lang.json`| zuì xīn Java bǎn （ hán kuài zhào ） de jiǎn tǐ zhōng wén yǔ yīng wén yǔ yán wén jiàn 。|
+|`version/documentation/`| jī yán bǎn guān fāng nèi róng bāo wén dàng ， tí qǔ zì [ guān fāng shì lì nèi róng bāo cāng kù ](https://github.com/Mojang/bedrock-samples)。|
+|`version/documentation/<edition>.json`| cóng duì yīng bǎn běn de wén dàng zhōng tí qǔ de shù jù 。|
+|`version/documentation/<edition>/<name>.json`| wén dàng jiě xī chéng de  JSON。|
 
-`version/<edition>` 目录下存储了可通过 `data/config.js` 配置版本的相关数据。
+`version/<edition>`  mù lù xià cún chǔ le kě tōng guò  `data/config.js`  pèi zhì bǎn běn de xiāng guān shù jù 。
 
-|路径|内容|
+| lù jìng | nèi róng |
 | - | - |
-|`version/<edition>/autocompletion/`|通过扫描自动补全列表获取的数据。|
-|`version/<edition>/autocompletion/<branch>.json`|在对应分支下扫描自动补全列表的结果。|
-|`version/<edition>/autocompletion/<branch>/<id>.json`|对上一条的细分。|
-|`version/<edition>/autocompletion/<branch>/mcpews.json`|通过 [mcpews](https://github.com/mcpews/mcpews) 获取的数据。|
-|`version/<edition>/gametest/`|通过 [quickjs-debugger](https://github.com/XeroAlpha/quickjs-debugger) 从 Script API 获取的数据。|
-|`version/<edition>/package/`|对安装包进行静态分析所获得的数据。|
-|`version/<edition>/package/info.json`| 安装包的基础信息。|
-|`version/<edition>/package/lang.json`| 安装包的简体中文与英文语言文件。|
-|`version/<edition>/package/data.json`| 对安装包的内置内容包进行分析所获得的数据。|
+|`version/<edition>/autocompletion/`| tōng guò sǎo miáo zì dòng bǔ quán liè biǎo huò qǔ de shù jù 。|
+|`version/<edition>/autocompletion/<branch>.json`| zài duì yīng fēn zhī xià sǎo miáo zì dòng bǔ quán liè biǎo de jié guǒ 。|
+|`version/<edition>/autocompletion/<branch>/<id>.json`| duì shàng yī tiáo de xì fēn 。|
+|`version/<edition>/autocompletion/<branch>/mcpews.json`| tōng guò  [mcpews](https://github.com/mcpews/mcpews)  huò qǔ de shù jù 。|
+|`version/<edition>/gametest/`| tōng guò  [quickjs-debugger](https://github.com/XeroAlpha/quickjs-debugger)  cóng  Script API  huò qǔ de shù jù 。|
+|`version/<edition>/package/`| duì ān zhuāng bāo jìn háng jìng tài fēn xī suǒ huò dé de shù jù 。|
+|`version/<edition>/package/info.json`|  ān zhuāng bāo de jī chǔ xìn xī 。|
+|`version/<edition>/package/lang.json`|  ān zhuāng bāo de jiǎn tǐ zhōng wén yǔ yīng wén yǔ yán wén jiàn 。|
+|`version/<edition>/package/data.json`|  duì ān zhuāng bāo de nèi zhì nèi róng bāo jìn háng fēn xī suǒ huò dé de shù jù 。|
 
-### 导出数据
+###  dǎo chū shù jù 
 
-导出数据均存储在 `output` 目录中。
+ dǎo chū shù jù jūn cún chǔ zài  `output`  mù lù zhōng 。
 
-|路径|内容|
+| lù jìng | nèi róng |
 | - | - |
-|`output/clib/<edition>/<branch>.json`|对应分支的命令库。|
-|`output/clib/<edition>/patch/<branch>.json`|对应分支在原版分支基础上的增量命令库。|
-|`output/langParity/<edition>/difference.json`|列出同一个英文在Java版与基岩版对应的不同英文。|
-|`output/langParity/<edition>/output.lang`|基于上述分析制作的译名修正语言文件。|
-|`output/langParity/<edition>/output.mcpack`|基于上述分析制作的译名修正语言包。|
-|`output/translation/<edition>/<branch>.json`|列出对应分支下的翻译状态。|
-|`output/translation/<edition>/<branch>.xlsx`|列出对应分支下的翻译状态。|
-|`output/web/`| 由MCBEID表与在线搜索API使用的数据。|
+|`output/clib/<edition>/<branch>.json`| duì yīng fēn zhī de mìng líng kù 。|
+|`output/clib/<edition>/patch/<branch>.json`| duì yīng fēn zhī zài yuán bǎn fēn zhī jī chǔ shàng de zēng liáng mìng líng kù 。|
+|`output/langParity/<edition>/difference.json`| liè chū tóng yī gè yīng wén zài Java bǎn yǔ jī yán bǎn duì yīng de bù tóng yīng wén 。|
+|`output/langParity/<edition>/output.lang`| jī yú shàng shù fēn xī zhì zuò de yì míng xiū zhèng yǔ yán wén jiàn 。|
+|`output/langParity/<edition>/output.mcpack`| jī yú shàng shù fēn xī zhì zuò de yì míng xiū zhèng yǔ yán bāo 。|
+|`output/translation/<edition>/<branch>.json`| liè chū duì yīng fēn zhī xià de fān yì zhuàng tài 。|
+|`output/translation/<edition>/<branch>.xlsx`| liè chū duì yīng fēn zhī xià de fān yì zhuàng tài 。|
+|`output/web/`|  yóu MCBEID biǎo yǔ zài xiàn sōu suǒ API shǐ yòng de shù jù 。|
 
-### 翻译
+###  fān yì 
 
-请参见 [翻译指南](./translation/README.md)。
+ qǐng cān jiàn  [ fān yì zhǐ nán ](./translation/README.md)。
 
-### 版本
+###  bǎn běn 
 
-|`<edition>`|名称|备注|
+|`<edition>`| míng chēng | bèi zhù |
 | - | - | - |
-|beta|测试版/预览版|更新速度快，包含较多不稳定的新特性的版本。|
-|release|正式版|更新速度慢，向所有人开放的稳定版本。|
-|netease|中国版|由网易推出的中国本地化版本，通常落后于正式版。|
-|netease_dev|中国版测试版|面向中国版开发者开放的测试版本。|
-|education|教育版|为教室使用而设计的教学版本。|
-|preview_win|预览版（Windows）|Windows 10/11 上的预览版。|
-|bds_preview|专用服务器预览版|预览版的专用服务器版本。|
-|bds|专用服务器正式版|正式版的专用服务器版本。|
-|dev|预览版开发版|同预览版，但包含部分开发者独有功能与开发中的新功能。|
-|release_dev|正式版开发版|同正式版，但包含部分开发者独有功能与开发中的新功能。|
-|education_dev|教育版开发版|同教育版，但包含部分开发者独有功能与开发中的新功能。|
-|bds_dev|专用服务器预览版开发版|同专用服务器预览版，但包含部分开发者独有功能与开发中的新功能。|
-|bds_release_dev|专用服务器正式版开发版|同专用服务器预览版，但包含部分开发者独有功能与开发中的新功能。|
+|beta| cè shì bǎn / yù lǎn bǎn | gēng xīn sù dù kuài ， bāo hán jiào duō bù wěn dìng de xīn tè xìng de bǎn běn 。|
+|release| zhèng shì bǎn | gēng xīn sù dù màn ， xiàng suǒ yǒu rén kāi fàng de wěn dìng bǎn běn 。|
+|netease| zhōng guó bǎn | yóu wǎng yì tuī chū de zhōng guó běn dì huà bǎn běn ， tōng cháng là hòu yú zhèng shì bǎn 。|
+|netease_dev| zhōng guó bǎn cè shì bǎn | miàn xiàng zhōng guó bǎn kāi fā zhě kāi fàng de cè shì bǎn běn 。|
+|education| jiào yù bǎn | wéi jiào shì shǐ yòng ér shè jì de jiào xué bǎn běn 。|
+|preview_win| yù lǎn bǎn （Windows）|Windows 10/11  shàng de yù lǎn bǎn 。|
+|bds_preview| zhuān yòng fú wù qì yù lǎn bǎn | yù lǎn bǎn de zhuān yòng fú wù qì bǎn běn 。|
+|bds| zhuān yòng fú wù qì zhèng shì bǎn | zhèng shì bǎn de zhuān yòng fú wù qì bǎn běn 。|
+|dev| yù lǎn bǎn kāi fā bǎn | tóng yù lǎn bǎn ， dàn bāo hán bù fēn kāi fā zhě dú yǒu gōng néng yǔ kāi fā zhōng de xīn gōng néng 。|
+|release_dev| zhèng shì bǎn kāi fā bǎn | tóng zhèng shì bǎn ， dàn bāo hán bù fēn kāi fā zhě dú yǒu gōng néng yǔ kāi fā zhōng de xīn gōng néng 。|
+|education_dev| jiào yù bǎn kāi fā bǎn | tóng jiào yù bǎn ， dàn bāo hán bù fēn kāi fā zhě dú yǒu gōng néng yǔ kāi fā zhōng de xīn gōng néng 。|
+|bds_dev| zhuān yòng fú wù qì yù lǎn bǎn kāi fā bǎn | tóng zhuān yòng fú wù qì yù lǎn bǎn ， dàn bāo hán bù fēn kāi fā zhě dú yǒu gōng néng yǔ kāi fā zhōng de xīn gōng néng 。|
+|bds_release_dev| zhuān yòng fú wù qì zhèng shì bǎn kāi fā bǎn | tóng zhuān yòng fú wù qì yù lǎn bǎn ， dàn bāo hán bù fēn kāi fā zhě dú yǒu gōng néng yǔ kāi fā zhōng de xīn gōng néng 。|
 
-### 分支
+###  fēn zhī 
 
-|`<branch>`|名称|类型|备注|
+|`<branch>`| míng chēng | lèi xíng | bèi zhù |
 | - | - | - | - |
-|vanilla|原版|自动补全|使用默认设置创建的世界|
-|education|教育版|自动补全|启用了教育版选项后创建的世界|
-|experiment|实验性玩法|自动补全|启用了所有实验性玩法选项后创建的世界|
-|gametest|Script API|Script API|启用了教育版选项与所有实验性玩法选项后创建的世界<br>（开发版中需要打开“显示所有命令”，Windows 10 版上仅开启“测试版 API”实验性玩法）|
-|translator|翻译专用|翻译专用|标准译名表与两个版本的双语语言文件|
-|documentation|文档|文档|开发者文档中出现的ID及其描述|
-|langParity|译名比较|语言包修正|比较基岩版翻译与标准化译名，生成语言修正包|
+|vanilla| yuán bǎn | zì dòng bǔ quán | shǐ yòng mò rèn shè zhì chuàng jiàn de shì jiè |
+|education| jiào yù bǎn | zì dòng bǔ quán | qǐ yòng le jiào yù bǎn xuǎn xiàng hòu chuàng jiàn de shì jiè |
+|experiment| shí yàn xìng wán fǎ | zì dòng bǔ quán | qǐ yòng le suǒ yǒu shí yàn xìng wán fǎ xuǎn xiàng hòu chuàng jiàn de shì jiè |
+|gametest|Script API|Script API| qǐ yòng le jiào yù bǎn xuǎn xiàng yǔ suǒ yǒu shí yàn xìng wán fǎ xuǎn xiàng hòu chuàng jiàn de shì jiè <br>（ kāi fā bǎn zhōng xū yào dǎ kāi “ xiǎn shì suǒ yǒu mìng líng ”，Windows 10  bǎn shàng jǐn kāi qǐ “ cè shì bǎn  API” shí yàn xìng wán fǎ ）|
+|translator| fān yì zhuān yòng | fān yì zhuān yòng | biāo zhǔn yì míng biǎo yǔ liǎng gè bǎn běn de shuāng yǔ yǔ yán wén jiàn |
+|documentation| wén dàng | wén dàng | kāi fā zhě wén dàng zhōng chū xiàn de ID jí qí miáo shù |
+|langParity| yì míng bǐ jiào | yǔ yán bāo xiū zhèng | bǐ jiào jī yán bǎn fān yì yǔ biāo zhǔn huà yì míng ， shēng chéng yǔ yán xiū zhèng bāo |
 
-### 自动补全
+###  zì dòng bǔ quán 
 
-|`<id>`|名称|备注|
+|`<id>`| míng chēng | bèi zhù |
 | - | - | - |
-|blocks|方块|用于 setblock、fill 等命令的方块 ID。|
-|items|物品|用于 give、clear 等命令的物品 ID。|
-|entities|实体|用于 type 选择器的实体 ID。|
-|summonable_entities|可召唤实体|用于 summon 命令的实体 ID。|
-|effects|状态效果|用于 effect 命令的状态效果 ID。|
-|enchantments|魔咒|用于 enchant 命令的魔咒 ID。|
-|gamerules|游戏规则|用于 gamerule 命令的游戏规则 ID。|
-|locations|结构|用于 locate 命令的结构 ID。|
-|biomes|生物群系|用于 locate 命令的生物群系 ID。|
-|mobevents|生物事件|用于 mobevent 命令的生物事件 ID。|
-|entity_slots|槽位|用于 replaceitem 命令等的槽位 ID。|
-|selectors|目标选择器参数|用于选择实体时指定条件。|
-|loot_tools|战利品工具表|用于 loot 命令的工具选项。|
-|damage_causes|伤害类型|用于 damage 命令的伤害类型 ID。|
-|item_with_aliases|物品|包含别名，可用于 give、clear 等命令。|
-|features_and_rules|地物与地物规则|用于 placefeature 命令的地物 ID 和地物规则 ID。|
-|input_permissions|操作输入权限|用于 inputpermission 命令的输入权限 ID。|
-|camera_presets|摄像机预设|用于 camera 命令的摄像机预设 ID。|
-|recipes|配方|用于 recipe 命令的配方 ID。|
-|hud_elements|HUD界面元素|用于 hud 命令的界面元素 ID。|
-|abilities|能力|用于教育版 ability 命令的能力 ID。|
-|options|选项|仅开发版|
-|particle_types|粒子类型|仅开发版|
-|features|地物|仅开发版|
-|feature_rules|地物规则|仅开发版|
-|server_tests|服务器测试|仅开发版|
-|unit_tests|单元测试|仅开发版|
-|functional_tests|功能测试|仅开发版|
+|blocks| fāng kuài | yòng yú  setblock、fill  děng mìng líng de fāng kuài  ID。|
+|items| wù pǐn | yòng yú  give、clear  děng mìng líng de wù pǐn  ID。|
+|entities| shí tǐ | yòng yú  type  xuǎn zé qì de shí tǐ  ID。|
+|summonable_entities| kě zhào huàn shí tǐ | yòng yú  summon  mìng líng de shí tǐ  ID。|
+|effects| zhuàng tài xiào guǒ | yòng yú  effect  mìng líng de zhuàng tài xiào guǒ  ID。|
+|enchantments| mó zhòu | yòng yú  enchant  mìng líng de mó zhòu  ID。|
+|gamerules| yóu xì guī zé | yòng yú  gamerule  mìng líng de yóu xì guī zé  ID。|
+|locations| jié gòu | yòng yú  locate  mìng líng de jié gòu  ID。|
+|biomes| shēng wù qún xì | yòng yú  locate  mìng líng de shēng wù qún xì  ID。|
+|mobevents| shēng wù shì jiàn | yòng yú  mobevent  mìng líng de shēng wù shì jiàn  ID。|
+|entity_slots| cáo wèi | yòng yú  replaceitem  mìng líng děng de cáo wèi  ID。|
+|selectors| mù biāo xuǎn zé qì cān shù | yòng yú xuǎn zé shí tǐ shí zhǐ dìng tiáo jiàn 。|
+|loot_tools| zhàn lì pǐn gōng jù biǎo | yòng yú  loot  mìng líng de gōng jù xuǎn xiàng 。|
+|damage_causes| shāng hài lèi xíng | yòng yú  damage  mìng líng de shāng hài lèi xíng  ID。|
+|item_with_aliases| wù pǐn | bāo hán bié míng ， kě yòng yú  give、clear  děng mìng líng 。|
+|features_and_rules| dì wù yǔ dì wù guī zé | yòng yú  placefeature  mìng líng de dì wù  ID  hé dì wù guī zé  ID。|
+|input_permissions| cāo zuò shū rù quán xiàn | yòng yú  inputpermission  mìng líng de shū rù quán xiàn  ID。|
+|camera_presets| shè xiàng jī yù shè | yòng yú  camera  mìng líng de shè xiàng jī yù shè  ID。|
+|recipes| pèi fāng | yòng yú  recipe  mìng líng de pèi fāng  ID。|
+|hud_elements|HUD jiè miàn yuán sù | yòng yú  hud  mìng líng de jiè miàn yuán sù  ID。|
+|abilities| néng lì | yòng yú jiào yù bǎn  ability  mìng líng de néng lì  ID。|
+|options| xuǎn xiàng | jǐn kāi fā bǎn |
+|particle_types| lì zǐ lèi xíng | jǐn kāi fā bǎn |
+|features| dì wù | jǐn kāi fā bǎn |
+|feature_rules| dì wù guī zé | jǐn kāi fā bǎn |
+|server_tests| fú wù qì cè shì | jǐn kāi fā bǎn |
+|unit_tests| dān yuán cè shì | jǐn kāi fā bǎn |
+|functional_tests| gōng néng cè shì | jǐn kāi fā bǎn |
 
-## 工作流
-请视情况选择工作流。
+##  gōng zuò liú 
+ qǐng shì qíng kuàng xuǎn zé gōng zuò liú 。
 
-- 仅导出自带版本：准备、运行、校对
-- 导出任意版本：准备、准备 OCR、运行（仅OCR）、运行、校对
+-  jǐn dǎo chū zì dài bǎn běn ： zhǔn bèi 、 yùn háng 、 xiào duì 
+-  dǎo chū rèn yì bǎn běn ： zhǔn bèi 、 zhǔn bèi  OCR、 yùn háng （ jǐn OCR）、 yùn háng 、 xiào duì 
 
-### 准备
-1. 确认已安装 Node.js 最新版。
-2. 运行命令 `npm install` 开始安装。
+###  zhǔn bèi 
+1.  què rèn yǐ ān zhuāng  Node.js  zuì xīn bǎn 。
+2.  yùn háng mìng líng  `npm install`  kāi shǐ ān zhuāng 。
 
-### 准备 OCR
-1. 确认已安装 ffmpeg、Tesseract 与 adb，并已将 ffmpeg 可执行文件所在目录设为路径环境变量。
-2. 将支持 USB 调试的手机连接至电脑。
-3. 从 [Genymobile/scrcpy](https://github.com/Genymobile/scrcpy/releases/latest) Release 页面下载对应的 server，放入 `data/scrcpy-server` 文件夹，并修改 `data/scrcpy-server/index.js`。
-4. 准备一个 Minecraft 安装包（支持 apks 格式和 apk 格式）。
-5. 将上述 Minecraft 安装包安装到手机上。
-6. 从安装包中找到 Mojangles 字体，使用 Tesseract 训练出模型（如已训练过可直接使用训练过的模型）。
-    - 如果您的 Minecraft 使用的字体不是默认的像素字体（即 Mojangles / Minecraft Seven），请使用 Minecraft 正在使用的字体进行训练。
-7. 按文件中的注释修改 `data/config.js`。
+###  zhǔn bèi  OCR
+1.  què rèn yǐ ān zhuāng  ffmpeg、Tesseract  yǔ  adb， bìng yǐ jiāng  ffmpeg  kě zhí háng wén jiàn suǒ zài mù lù shè wéi lù jìng huán jìng biàn liáng 。
+2.  jiāng zhī chí  USB  tiáo shì de shǒu jī lián jiē zhì diàn nǎo 。
+3.  cóng  [Genymobile/scrcpy](https://github.com/Genymobile/scrcpy/releases/latest) Release  yè miàn xià zǎi duì yīng de  server， fàng rù  `data/scrcpy-server`  wén jiàn jiā ， bìng xiū gǎi  `data/scrcpy-server/index.js`。
+4.  zhǔn bèi yī gè  Minecraft  ān zhuāng bāo （ zhī chí  apks  gé shì hé  apk  gé shì ）。
+5.  jiāng shàng shù  Minecraft  ān zhuāng bāo ān zhuāng dào shǒu jī shàng 。
+6.  cóng ān zhuāng bāo zhōng zhǎo dào  Mojangles  zì tǐ ， shǐ yòng  Tesseract  xùn liàn chū mó xíng （ rú yǐ xùn liàn guò kě zhí jiē shǐ yòng xùn liàn guò de mó xíng ）。
+    -  rú guǒ nín de  Minecraft  shǐ yòng de zì tǐ bù shì mò rèn de xiàng sù zì tǐ （ jí  Mojangles / Minecraft Seven）， qǐng shǐ yòng  Minecraft  zhèng zài shǐ yòng de zì tǐ jìn háng xùn liàn 。
+7.  àn wén jiàn zhōng de zhù shì xiū gǎi  `data/config.js`。
 
-### 运行
-1. 运行 `npm run generate-release` 或 `npm run generate-beta`，取决于你要生成哪种版本的数据。
+###  yùn háng 
+1.  yùn háng  `npm run generate-release`  huò  `npm run generate-beta`， qǔ jué yú nǐ yào shēng chéng nǎ zhǒng bǎn běn de shù jù 。
 
-### 运行（仅OCR）
-1. 运行 `npm run generate-release` 或 `npm run generate-beta`。
-2. 打开 Minecraft，进入一个已开启作弊的单人世界，等待游戏进入HUD界面。在终端出现 `Press <Enter> if the device is ready` 提示且游戏已进入HUD界面时，按下回车。出现 `Please switch to branch: education` 提示时，进入一个已开启作弊的教育版世界。出现 `Please switch to branch: experiment` 提示时，进入一个已开启作弊与所有实验性功能的单人世界。
-3. 此过程中如果终端没有提示要求操作，请不要控制手机，也不要让 Minecraft 切至后台，否则可能导致流程失败。如果遵守上述要求后仍然出现提示 `Auto-completed command test failed`，可能为 Tesseract 识别出错，您需要将错误的条目和对应正确的条目手动保存到 `data/config.js` 以便让本工具手动纠正。
+###  yùn háng （ jǐn OCR）
+1.  yùn háng  `npm run generate-release`  huò  `npm run generate-beta`。
+2.  dǎ kāi  Minecraft， jìn rù yī gè yǐ kāi qǐ zuò bì de dān rén shì jiè ， děng dài yóu xì jìn rù HUD jiè miàn 。 zài zhōng duān chū xiàn  `Press <Enter> if the device is ready`  tí shì qiě yóu xì yǐ jìn rù HUD jiè miàn shí ， àn xià huí chē 。 chū xiàn  `Please switch to branch: education`  tí shì shí ， jìn rù yī gè yǐ kāi qǐ zuò bì de jiào yù bǎn shì jiè 。 chū xiàn  `Please switch to branch: experiment`  tí shì shí ， jìn rù yī gè yǐ kāi qǐ zuò bì yǔ suǒ yǒu shí yàn xìng gōng néng de dān rén shì jiè 。
+3.  cǐ guò chéng zhōng rú guǒ zhōng duān méi yǒu tí shì yào qiú cāo zuò ， qǐng bù yào kòng zhì shǒu jī ， yě bù yào ràng  Minecraft  qiē zhì hòu tái ， fǒu zé kě néng dǎo zhì liú chéng shī bài 。 rú guǒ zūn shǒu shàng shù yào qiú hòu réng rán chū xiàn tí shì  `Auto-completed command test failed`， kě néng wéi  Tesseract  shí bié chū cuò ， nín xū yào jiāng cuò wù de tiáo mù hé duì yīng zhèng què de tiáo mù shǒu dòng bǎo cún dào  `data/config.js`  yǐ biàn ràng běn gōng jù shǒu dòng jiū zhèng 。
 
-### 校对
-1. 检查输出的 `output/xxx/clib/xxx.json`（拓展包）与 `output/xxx/translation/xxx.xlsx`（ID-翻译对照表）。发现错译、漏译时请修改对应的 `translation/xxx.json`，随后从“运行”工作流继续。
-2. `translation/xxx.json` 支持引用标准化译名表数据与Java版语言数据，并且支持从其他译名拼接出新的译名。请尽量使用标准化译名或者由标准化译名拼接而来的翻译。具体格式请参见 [翻译流程](./translation/README.md#流程)。
+###  xiào duì 
+1.  jiǎn chá shū chū de  `output/xxx/clib/xxx.json`（ tuò zhǎn bāo ） yǔ  `output/xxx/translation/xxx.xlsx`（ID- fān yì duì zhào biǎo ）。 fā xiàn cuò yì 、 lòu yì shí qǐng xiū gǎi duì yīng de  `translation/xxx.json`， suí hòu cóng “ yùn háng ” gōng zuò liú jì xù 。
+2. `translation/xxx.json`  zhī chí yǐn yòng biāo zhǔn huà yì míng biǎo shù jù yǔ Java bǎn yǔ yán shù jù ， bìng qiě zhī chí cóng qí tā yì míng pīn jiē chū xīn de yì míng 。 qǐng jìn liáng shǐ yòng biāo zhǔn huà yì míng huò zhě yóu biāo zhǔn huà yì míng pīn jiē ér lái de fān yì 。 jù tǐ gé shì qǐng cān jiàn  [ fān yì liú chéng ](./translation/README.md# liú chéng )。
