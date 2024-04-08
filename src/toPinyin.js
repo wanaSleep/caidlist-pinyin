@@ -29,7 +29,7 @@ function traverseDirectory(directory) {
             // 如果是文件，则读取并处理文件，然后复制到目标目录
             if(!filePath.endsWith('.json'))return
             const fileContent = readFileSync(filePath, 'utf8')
-            const fileContent_pinyin = pinyin(fileContent).join(' ')
+            const fileContent_pinyin = pinyin(fileContent,{style:pinyin.STYLE_NORMAL}).join(' ')
             // 在这里可以对文件内容进行处理
             const targetPath = path.join(targetDir, filePath.substring(sourceDir.length));
             writeFileSync(targetPath, fileContent_pinyin);
