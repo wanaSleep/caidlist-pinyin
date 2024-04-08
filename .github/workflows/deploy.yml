@@ -55,16 +55,16 @@ jobs:
         yarn install
         yarn build
 
-    - name: Deploy to self-hosted site
-      run: |
-        pushd ${{ github.workspace }}/web/dist
-        tar -cvzf ${{ github.workspace }}/idlist.tar.gz *
-        popd
-        echo "${{ secrets.SSH_KEY }}" > ${{ github.workspace }}/key.txt
-        chmod 400 ${{ github.workspace }}/key.txt
-        scp -q -P ${{ secrets.PORT }} -o StrictHostKeyChecking=no -i ${{ github.workspace }}/key.txt ${{ github.workspace }}/idlist.tar.gz "${{ secrets.USERNAME }}"@"${{ secrets.HOST }}":/tmp/idlist.tar.gz
-        ssh -q -p ${{ secrets.PORT }} -o StrictHostKeyChecking=no -i ${{ github.workspace }}/key.txt "${{ secrets.USERNAME }}"@"${{ secrets.HOST }}" "rm -rf ${{ secrets.TARGET_PATH }}/* && tar -xvzf /tmp/idlist.tar.gz -C ${{ secrets.TARGET_PATH }} && rm -f /tmp/idlist.tar.gz"
-        rm ${{ github.workspace }}/key.txt
+    # - name: Deploy to self-hosted site
+    #   run: |
+    #     pushd ${{ github.workspace }}/web/dist
+    #     tar -cvzf ${{ github.workspace }}/idlist.tar.gz *
+    #     popd
+    #     echo "${{ secrets.SSH_KEY }}" > ${{ github.workspace }}/key.txt
+    #     chmod 400 ${{ github.workspace }}/key.txt
+    #     scp -q -P ${{ secrets.PORT }} -o StrictHostKeyChecking=no -i ${{ github.workspace }}/key.txt ${{ github.workspace }}/idlist.tar.gz "${{ secrets.USERNAME }}"@"${{ secrets.HOST }}":/tmp/idlist.tar.gz
+    #     ssh -q -p ${{ secrets.PORT }} -o StrictHostKeyChecking=no -i ${{ github.workspace }}/key.txt "${{ secrets.USERNAME }}"@"${{ secrets.HOST }}" "rm -rf ${{ secrets.TARGET_PATH }}/* && tar -xvzf /tmp/idlist.tar.gz -C ${{ secrets.TARGET_PATH }} && rm -f /tmp/idlist.tar.gz"
+    #     rm ${{ github.workspace }}/key.txt
 
     - name: Setup GitHub Pages
       uses: actions/configure-pages@v4
