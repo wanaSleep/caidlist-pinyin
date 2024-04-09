@@ -29,7 +29,8 @@ function traverseDirectory(directory) {
             // 如果是文件，则读取并处理文件，然后复制到目标目录
             if(!filePath.endsWith('.json'))return
             const fileContent = readFileSync(filePath, 'utf8')
-            const fileContent_pinyin = pinyin(fileContent,{style:pinyin.STYLE_NORMAL}).join(' ')
+            // 将字符串列表的每个元素的第一个字符大写
+            const fileContent_pinyin = pinyin(fileContent,{style:pinyin.STYLE_NORMAL}).map(_=>_[0][0].toUpperCase()+_[0].slice(1)).join('')
             // 在这里可以对文件内容进行处理
             const targetPath = path.join(targetDir, filePath.substring(sourceDir.length));
             writeFileSync(targetPath, fileContent_pinyin);
@@ -40,3 +41,10 @@ function traverseDirectory(directory) {
 
 // 开始遍历源目录
 traverseDirectory(sourceDir);
+
+// console.log(
+
+// pinyin("我是猪",{style:pinyin.STYLE_NORMAL}).map(_=>_[0][0].toUpperCase()+_[0].slice(1)).join('')
+
+// )
+
